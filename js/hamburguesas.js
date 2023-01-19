@@ -8,7 +8,7 @@ verHamburguesas.addEventListener("click", () => {
 
 const mostrarHamburguesas = async () => {
   listaProductos.innerHTML = "";
-  const resp = await fetch("../JSON/hamburguesas.json");
+  const resp = await fetch("./JSON/hamburguesas.json");
   const data = await resp.json();
 
   data.forEach((e) => {
