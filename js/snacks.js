@@ -8,7 +8,7 @@ verSnacks.addEventListener("click", () => {
 
 const mostrarSnacks = async () => {
   listaProductos.innerHTML = "";
-  const resp = await fetch("./JSON/Snacks.json");
+  const resp = await fetch("./JSON/snacks.json");
   const data = await resp.json();
 
   data.forEach((e) => {
