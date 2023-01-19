@@ -8,7 +8,7 @@ verPostres.addEventListener("click", () => {
 
 const mostrarPostres = async () => {
   listaProductos.innerHTML = "";
-  const resp = await fetch("./JSON/postres.json");
+  const resp = await fetch("../JSON/postres.json");
   const data = await resp.json();
 
   data.forEach((e) => {

@@ -8,7 +8,7 @@ verMegasabrosos.addEventListener("click", () => {
 
 const mostrarMegasabrosos = async () => {
   listaProductos.innerHTML = "";
-  const resp = await fetch("./JSON/megasabrosos.json");
+  const resp = await fetch("../JSON/megaSabrosos.json");
   const data = await resp.json();
 
   data.forEach((e) => {
