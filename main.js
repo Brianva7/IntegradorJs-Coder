@@ -6,6 +6,24 @@ const carritoBtn = document.querySelector("#carritoBtn");
 const comprarBtn = document.querySelector("#comprarBtn");
 const listaProductos = document.querySelector("#cards");
 
+// redireccion a finalizar compra
+
+function redireccionFinalizar() {
+  if (carrito.length === 0) {
+    Swal.fire({
+      position: "center",
+      icon: "error",
+      title: "Carrito vacio!",
+      showConfirmButton: false,
+      timer: 2000,
+    });
+  } else {
+    location.href = "html/finalizarCompra.html";
+  }
+}
+
+// redireccion a finalizar compra
+
 // variables globales
 
 // guardar carrito en local
