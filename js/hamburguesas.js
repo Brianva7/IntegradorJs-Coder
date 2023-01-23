@@ -6,9 +6,8 @@ verHamburguesas.addEventListener("click", () => {
   mostrarHamburguesas();
 });
 
-const mostrarHamburguesas = () => {
-  listaProductos.innerHTML = "";
-  fetch(`../hamburguesas.json`)
+const mostrarHamburguesas = async () => {
+  await fetch(`http://127.0.0.1:5500/hamburguesas.json`)
     .then((res) => res.json())
     .then((data) => {
       data.forEach((e) => {
@@ -55,4 +54,5 @@ const mostrarHamburguesas = () => {
       });
     });
 };
+
 // mostrar seccion de productos "hamburguesas"

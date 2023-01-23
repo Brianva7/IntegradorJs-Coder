@@ -6,9 +6,9 @@ verMegasabrosos.addEventListener("click", () => {
   mostrarMegasabrosos();
 });
 
-const mostrarMegasabrosos = () => {
+const mostrarMegasabrosos = async () => {
   listaProductos.innerHTML = "";
-  fetch(`../megasabrosos.json`)
+  await fetch(`http://127.0.0.1:5500/megasabrosos.json`)
     .then((res) => res.json())
     .then((data) => {
       data.forEach((e) => {

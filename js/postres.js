@@ -6,9 +6,9 @@ verPostres.addEventListener("click", () => {
   mostrarPostres();
 });
 
-const mostrarPostres = () => {
+const mostrarPostres = async () => {
   listaProductos.innerHTML = "";
-  fetch(`../postres.json`)
+  await fetch(`http://127.0.0.1:5500/postres.json`)
     .then((res) => res.json())
     .then((data) => {
       data.forEach((e) => {

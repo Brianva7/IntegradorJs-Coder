@@ -6,9 +6,9 @@ verSnacks.addEventListener("click", () => {
   mostrarSnacks();
 });
 
-const mostrarSnacks = () => {
+const mostrarSnacks = async () => {
   listaProductos.innerHTML = "";
-  fetch(`../snacks.json`)
+  await fetch(`http://127.0.0.1:5500/snacks.json`)
     .then((res) => res.json())
     .then((data) => {
       data.forEach((e) => {
