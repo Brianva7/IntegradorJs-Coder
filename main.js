@@ -44,9 +44,8 @@ const verCarrito = () => {
   totalPrecio.innerHTML = "Total: 0";
   carrito.forEach((e) => {
     const products = document.createElement("div");
-    products.className = "p-5 bg-warning text-dark";
+    products.className = "text-center p-3 bg-warning text-dark";
     products.innerHTML = `<h5>${e.nombre}</h5>
-    <p>${e.toppings}</p>
     <p>$${e.precio} X ${e.cantidad}</p>
     <button class="btn btn-dark mb-2 deleteBtn${e.id}">Eliminar</button>
     `;
