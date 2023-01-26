@@ -54,4 +54,5 @@ const mostrarMegasabrosos = async () => {
     });
   });
 };
+
 // mostrar seccion de productos "Megasabrosos"
