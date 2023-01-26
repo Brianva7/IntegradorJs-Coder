@@ -50,7 +50,6 @@ document.querySelector("#guardarDatos").addEventListener("click", () => {
       sessionStorage.clear();
       sessionData.shift(0);
     } else {
-      console.log(sessionData);
       succesMsg();
       resumenCompra();
     }
