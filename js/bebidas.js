@@ -6,9 +6,9 @@ verBebidas.addEventListener("click", () => {
   mostrarBebidas();
 });
 
-const mostrarBebidas = async () => {
+const mostrarBebidas = () => {
   listaProductos.innerHTML = "";
-  await fetch(`../bebidas.json`)
+  fetch(`./bebidas.json`)
     .then((res) => res.json())
     .then((data) => {
       data.forEach((e) => {
