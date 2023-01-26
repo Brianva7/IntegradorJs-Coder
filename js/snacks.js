@@ -52,4 +52,5 @@ const mostrarSnacks = async () => {
     });
   });
 };
+
 // mostrar seccion de productos "Snacks"

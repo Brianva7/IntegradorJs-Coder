@@ -2,6 +2,10 @@
 
 const verBebidas = document.querySelector("#bebidas");
 
+verBebidas.addEventListener("click", () => {
+  mostrarBebidas();
+});
+
 const mostrarBebidas = async () => {
   listaProductos.innerHTML = "";
   const resp = await fetch("bebidas.json");
@@ -48,4 +52,5 @@ const mostrarBebidas = async () => {
     });
   });
 };
+
 // mostrar seccion de productos "Bebidas"

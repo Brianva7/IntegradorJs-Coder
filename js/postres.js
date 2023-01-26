@@ -52,4 +52,5 @@ const mostrarPostres = async () => {
     });
   });
 };
+
 // mostrar seccion de productos "postres"
