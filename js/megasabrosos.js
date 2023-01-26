@@ -8,53 +8,52 @@ verMegasabrosos.addEventListener("click", () => {
 
 const mostrarMegasabrosos = async () => {
   listaProductos.innerHTML = "";
+  await fetch(`../megasabrosos.json`)
+    .then((res) => res.json())
+    .then((data) => {
+      data.forEach((e) => {
+        const producto = document.createElement("p");
+        producto.innerHTML = `
+        <div class="mx-2">
+        <img src="./img/hamburguesa.jpg" class="card-img-top" alt="card-grid-image">
+        <div class="card-body">
+        <h5 class="card-title">${e.nombre}</h5>
+        <p class="card-text">${e.toppings}</p>
+      <p class="card-text">$${e.precio}<p>
+      </div>
+      </div>`;
 
-  const fetchMega = async () => {
-    const res = await fetch("../megasabrosos.json");
-    const data = await res.json();
+        listaProductos.append(producto);
 
-    data.forEach((e) => {
-      const producto = document.createElement("p");
-      producto.innerHTML = `
-          <div class="mx-2">
-          <img src="./img/hamburguesa.jpg" class="card-img-top" alt="card-grid-image">
-          <div class="card-body">
-          <h5 class="card-title">${e.nombre}</h5>
-          <p class="card-text">${e.toppings}</p>
-          <p class="card-text">$${e.precio}<p>
-          </div>
-          </div>`;
+        const addBtn = document.createElement("button");
+        addBtn.innerText = "agregar";
+        addBtn.className = "btn btn-dark m-2";
 
-      listaProductos.append(producto);
+        producto.append(addBtn);
 
-      const addBtn = document.createElement("button");
-      addBtn.innerText = "agregar";
-      addBtn.className = "btn btn-dark m-2";
+        addBtn.addEventListener("click", () => {
+          const r = carrito.some((r) => r.id === e.id);
+          if (r) {
+            carrito.map((a) => {
+              if (a.id === e.id) {
+                a.cantidad++;
+              }
+            });
+          } else {
+            carrito.push({
+              id: e.id,
+              nombre: e.nombre,
+              precio: e.precio,
+              toppings: e.toppings,
+              cantidad: e.cantidad,
+            });
+          }
 
-      producto.append(addBtn);
-
-      addBtn.addEventListener("click", () => {
-        const r = carrito.some((r) => r.id === e.id);
-        if (r) {
-          carrito.map((a) => {
-            if (a.id === e.id) {
-              a.cantidad++;
-            }
-          });
-        } else {
-          carrito.push({
-            id: e.id,
-            nombre: e.nombre,
-            precio: e.precio,
-            toppings: e.toppings,
-            cantidad: e.cantidad,
-          });
-        }
-
-        guardarCarrito();
-        verCarrito();
+          guardarCarrito();
+          verCarrito();
+        });
       });
     });
-  };
-  fetchMega();
 };
+
+// mostrar seccion de productos "Megasabrosos"

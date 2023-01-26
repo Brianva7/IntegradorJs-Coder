@@ -8,14 +8,12 @@ verBebidas.addEventListener("click", () => {
 
 const mostrarBebidas = async () => {
   listaProductos.innerHTML = "";
-
-  const fetchBebidas = async () => {
-    const res = await fetch("../bebidas.json");
-    const data = await res.json();
-
-    data.forEach((e) => {
-      const producto = document.createElement("p");
-      producto.innerHTML = `
+  await fetch(`../bebidas.json`)
+    .then((res) => res.json())
+    .then((data) => {
+      data.forEach((e) => {
+        const producto = document.createElement("p");
+        producto.innerHTML = `
         <div class="mx-2">
         <img src="./img/hamburguesa.jpg" class="card-img-top" alt="card-grid-image">
         <div class="card-body">
@@ -24,37 +22,37 @@ const mostrarBebidas = async () => {
       </div>
       </div>`;
 
-      listaProductos.append(producto);
+        listaProductos.append(producto);
 
-      const addBtn = document.createElement("button");
-      addBtn.innerText = "agregar";
-      addBtn.className = "btn btn-dark m-2";
+        const addBtn = document.createElement("button");
+        addBtn.innerText = "agregar";
+        addBtn.className = "btn btn-dark m-2";
 
-      producto.append(addBtn);
+        producto.append(addBtn);
 
-      addBtn.addEventListener("click", () => {
-        const r = carrito.some((r) => r.id === e.id);
-        if (r) {
-          carrito.map((a) => {
-            if (a.id === e.id) {
-              a.cantidad++;
-            }
-          });
-        } else {
-          carrito.push({
-            id: e.id,
-            nombre: e.nombre,
-            precio: e.precio,
-            cantidad: e.cantidad,
-          });
-        }
+        addBtn.addEventListener("click", () => {
+          const r = carrito.some((r) => r.id === e.id);
+          if (r) {
+            carrito.map((a) => {
+              if (a.id === e.id) {
+                a.cantidad++;
+              }
+            });
+          } else {
+            carrito.push({
+              id: e.id,
+              nombre: e.nombre,
+              precio: e.precio,
+              toppings: e.toppings,
+              cantidad: e.cantidad,
+            });
+          }
 
-        guardarCarrito();
-        verCarrito();
+          guardarCarrito();
+          verCarrito();
+        });
       });
     });
-  };
-  fetchBebidas();
 };
 
 // mostrar seccion de productos "Bebidas"
