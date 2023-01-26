@@ -4,17 +4,17 @@ const verBebidas = document.querySelector("#bebidas");
 
 const mostrarBebidas = async () => {
   listaProductos.innerHTML = "";
-  const resp = await fetch("../megasabrosos");
+  const resp = await fetch("bebidas.json");
   const data = await resp.json();
 
-  data.forEach((post) => {
+  data.forEach((e) => {
     const producto = document.createElement("p");
     producto.innerHTML = `
-    <div class="mx-2">
-    <img src="./img/hamburguesa.jpg" class="card-img-top" alt="card-grid-image">
-    <div class="card-body">
-    <h5 class="card-title">${post.nombre}</h5>
-    <p class="card-text">$${post.precio}<p>
+      <div class="mx-2">
+      <img src="./img/hamburguesa.jpg" class="card-img-top" alt="card-grid-image">
+      <div class="card-body">
+      <h5 class="card-title">${e.nombre}</h5>
+    <p class="card-text">$${e.precio}<p>
     </div>
     </div>`;
 
@@ -39,7 +39,6 @@ const mostrarBebidas = async () => {
           id: e.id,
           nombre: e.nombre,
           precio: e.precio,
-          toppings: e.toppings,
           cantidad: e.cantidad,
         });
       }
@@ -49,9 +48,4 @@ const mostrarBebidas = async () => {
     });
   });
 };
-
-verBebidas.addEventListener("click", () => {
-  mostrarBebidas();
-});
-
 // mostrar seccion de productos "Bebidas"
