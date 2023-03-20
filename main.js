@@ -6,6 +6,22 @@ const carritoBtn = document.querySelector("#carritoBtn");
 const comprarBtn = document.querySelector("#comprarBtn");
 const listaProductos = document.querySelector("#cards");
 
+// Welcome
+
+const welcome = () => {
+  if (listaProductos.innerHTML === "") {
+    listaProductos.innerHTML = `<h1 class="text-center">
+    Bienvenido a Perfumo, el lugar donde encontraras lo que quieres comer hoy!
+    </h1>`;
+  } else {
+    return;
+  }
+};
+
+welcome();
+
+// Welcome
+
 // redireccion a finalizar compra
 
 function redireccionFinalizar() {
