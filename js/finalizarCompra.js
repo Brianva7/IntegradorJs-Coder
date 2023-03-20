@@ -50,9 +50,9 @@ document.querySelector("#guardarDatos").addEventListener("click", () => {
       sessionStorage.clear();
       sessionData.shift(0);
     } else {
-      guardarSession();
       succesMsg();
       resumenCompra();
+      guardarSession();
     }
   });
 });
@@ -105,3 +105,4 @@ const resumenCompra = () => {
     });
   });
 };
+
