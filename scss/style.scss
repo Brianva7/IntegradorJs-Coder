@@ -3,10 +3,28 @@
   padding: 0;
   box-sizing: border-box;
 }
-
-body {
-  background-color: rgb(92, 0, 0);
+a {
+  text-decoration: none;
   color: white;
+}
+body {
+  background-color: rgb(0, 0, 0);
+  color: white;
+  padding-bottom: 50px;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  bottom: 0;
+  height: 50px;
+  width: 100%;
+  text-align: center;
+  background-color: black;
+  border-top: 2px solid orange;
+  align-items: center;
+  padding: 5px;
 }
 
 .card-img-top {
@@ -21,7 +39,7 @@ body {
 
 .goTopButton {
   position: fixed;
-  bottom: 15px;
+  bottom: 55px;
   right: 15px;
   opacity: 0.4;
   &:hover {
